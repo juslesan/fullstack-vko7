@@ -5,18 +5,18 @@ import { ControlLabel, Button, FormGroup, FormControl } from 'react-bootstrap'
 const LoginForm = ({ handleSubmit, handleChange, username, password }) => {
   return (
     <div>
-      <h2>Kirjaudu sisään</h2>
+      <h2>Log in to the application</h2>
 
       <form onSubmit={handleSubmit}>
         <FormGroup>
-          <ControlLabel>Käyttäjätunnus: </ControlLabel>
+          <ControlLabel>Username: </ControlLabel>
           <FormControl
             value={username}
             onChange={handleChange}
             name="username"
           />
         
-          <ControlLabel>Salasana: </ControlLabel>
+          <ControlLabel>Password: </ControlLabel>
           <FormControl
             type="password"
             name="password"
@@ -24,7 +24,7 @@ const LoginForm = ({ handleSubmit, handleChange, username, password }) => {
             onChange={handleChange}
           /><br/>
 
-          <Button type="submit" bsStyle="success">Kirjaudu</Button> 
+          <Button type="submit" bsStyle="success">Login</Button> 
         </FormGroup>
       </form>
     </div>

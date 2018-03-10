@@ -14,8 +14,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       blogs: [],
-      error: 'asdasdasd',
-      yay: 'dsadsad',
+      error: null,
+      yay: null,
       username: '',
       password: '',
       user: null,
@@ -199,7 +199,7 @@ render() {
               value={this.state.newBlogUrl}
               onChange={this.handleBlogUrlChange}
             />
-            <Button bsStyle="success">Save</Button>
+            <Button style={{marginTop: 3}} type="submit" bsStyle="success">Save</Button>
           </FormGroup>
         </form>
       </div>
@@ -207,30 +207,30 @@ render() {
   
     return (
       <div className="container">
-        <div style={{backgroundColor: 'lightgreen', padding: 4, marginTop: 35, fontWeight:"bold"}}>
-        <h1>Blog list application</h1>
+        <div style={{backgroundColor: 'lightgreen', padding: 4, marginTop: 35, marginBottom: 20, fontWeight:"bold", borderRadius: 5}}>
+          <h1 style={{marginLeft:7}}>Blog list application</h1>
         </div>
         <Error message={this.state.error} />
         <Success message={this.state.yay} />
         <div style={{marginLeft:20}}>
-        {this.state.user === null ?
-          loginForm() :
-          <div>
-            <p style={{fontSize:18, fontStyle:'italic'}}>{this.state.user.name} logged in</p>
-            <form onSubmit={this.logout}>
-              <Button bsStyle=''>logout</Button>
-            </form>
-            {blogForm()}
+          {this.state.user === null ?
+            loginForm() :
+            <div>
+              <p style={{fontSize:18, fontStyle:'italic'}}>{this.state.user.name} logged in</p>
+              <form onSubmit={this.logout}>
+                <Button type="submit" bsStyle=''>logout</Button>
+              </form>
+              {blogForm()}
           
-          <div className="blogit">
-           <h2>Blogs:</h2>
-             {this.state.blogs.map(blog => 
-               <Blog key={blog._id}
-                 blog={blog}
-                 deleteBlog={this.deleteBlog}
-                 likeBlog={this.addLike(blog)}/>
-            )}
-           </div>
+              <div className="blogit">
+              <h2>Blogs:</h2>
+                {this.state.blogs.map(blog => 
+                  <Blog key={blog._id}
+                    blog={blog}
+                    deleteBlog={this.deleteBlog}
+                    likeBlog={this.addLike(blog)}/>
+             )}
+              </div>
           </div>
         }
         </div>

@@ -21,7 +21,8 @@ render() {
     border: 'solid',
     borderWidth: 1,
     marginBottom: 5,
-    background: 'lightblue'
+    background: 'lightblue',
+    fontWeight: 'bold'
   }
   const blogStyle2 = {
     paddingTop: 10,
@@ -51,7 +52,7 @@ render() {
 
            <p style={{fontStyle:'italic'}}>Blog added by {this.state.blog.user.name}</p>
            <form name={this.state.blog._id} onSubmit={this.props.deleteBlog}>
-             <Button bsStyle="danger">delete</Button>
+             <Button type="submit" bsStyle="danger" style={{marginBottom: 4}}>delete</Button>
            </form>
         </div>
     </div>
